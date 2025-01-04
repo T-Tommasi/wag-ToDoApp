@@ -1,0 +1,34 @@
+* {
+    border: red 1px solid;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.grid{
+    display: grid;
+}
+
+.flex {
+    display: flex;
+}
+
+.flexCentral {
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    grid-template: repeat(12,1fr)/repeat(12,1fr);
+    height: 100dvh;
+}
+
+nav {
+    grid-column: 1/2;
+    grid-row: 1 / 13;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}

@@ -8,8 +8,17 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'main.bundle.js',
+        clean: true,
     },
-    plugins: [new HtmlWebpackPlugin()],
+    devtool: 'source-map',
+    devServer: {
+        watchFiles: ['./src/**']
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './src/template.html'
+        })
+    ],
     module: {
         rules: [
             {
