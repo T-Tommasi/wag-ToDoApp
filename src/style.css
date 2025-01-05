@@ -56,12 +56,52 @@ nav {
 }
 
 .centralContent {
-    background-color: #FAFAFA;
+    background-color: #EAF1F1;
     border-radius: 20px;
     grid-column: 2/10;
     grid-row: 1/13;
-    padding: 5%;
+    padding: 2% 5%;
     margin-left: -1.5%;
     z-index: 8;
-    border-radius: 0 25px 25px 0;
+    grid-template: repeat(12, 1fr)/repeat(12, 1fr);
+}
+
+.pageTitle {
+    font-size: 3em;
+    text-decoration: underline;
+    grid-column: 1/4;
+    grid-row: 1/2;
+    margin: 0;
+}
+
+.noteList {
+    grid-column: 1/6;
+    grid-row: 2/9;
+    background-color: #FAFAFA;
+    border-radius: 32px;
+}
+
+.head  {
+    justify-content: space-between;
+    align-items: center;
+    padding: 2%;
+    height: 8%;
+}
+
+.noteList {
+    text-decoration: none;
+    list-style: none;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 0;
+    padding: 4%;
+}
+
+.innerNote {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.innerNote p:last-child {
+    font-size: 0.5em;
 }
