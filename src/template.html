@@ -45,7 +45,7 @@
         </nav>
         <div class="centralContent grid">
             <div class="pageTitle">Dashboard</div>
-            <div class="noteList">
+            <div class="innerContainer noteList">
                 <div class="head flex">
                     <h3>Recent notes: </h3>
                     <h6>See more...</h6>
@@ -83,8 +83,81 @@
                     </li>
                 </ul>
             </div>
+            <div class="innerContainer" id="statistics">
+                <div class="head flex">
+                    <h3>Statistics: </h3>
+                </div>
+                <div class="canvasContainer"></div>
+            </div>
+            <div class="innerContainer" id="projects">
+                <div class="head flex">
+                    <h3>Projects: </h3>
+                    <h6>See all...</h6>
+                </div>
+                <div class="flex flexCentral" id="folders">
+                    <div class="flex flexCentral" id="folder1">
+                        <i class="fa-solid fa-folder fa-6x"></i>
+                        <h5>folderName1</h5>
+                    </div>  
+                    <div class="flex" id="folder2">
+                        <i class="fa-solid fa-folder fa-6x"></i>
+                        <h5>folderName2</h5>
+                    </div>
+                    <div class="flex" id="folder3">
+                        <i class="fa-solid fa-folder fa-6x"></i>
+                        <h5>folderName3</h5> 
+                    </div>
+                    <div class="flex" id="folder4">
+                        <i class="fa-solid fa-folder fa-6x"></i>
+                        <h5>folderName4</h5> 
+                    </div>
+                </div>
+            </div>
+            <div class="innerContainer" id="tasks">
+                <div class="head flex">
+                    <h3>Tasks: </h3>
+                    <h6>See all...</h6>
+                </div>
+                <div class="taskContainer flex">
+                    <div class="flex" id="input1">
+                        <fieldset>
+                            <input type="checkbox" name="input1" id="input1">
+                            <label for="input1">Input1</label>
+                        </fieldset>
+                        <h6>Today</h6>
+                    </div>
+                    <div class="flex" id="input2">
+                        <fieldset>
+                            <input type="checkbox" name="input2" id="input2">
+                            <label for="input1">Input2</label>
+                        </fieldset>
+                        <h6>Today</h6>
+                    </div>
+                    <div class="flex" id="input3">
+                        <fieldset>
+                            <input type="checkbox" name="input3" id="input3">
+                            <label for="input1">Input3</label>
+                        </fieldset>
+                        <h6>Today</h6>
+                    </div>
+                    <div class="flex" id="input4">
+                        <fieldset>
+                            <input type="checkbox" name="input4" id="input4">
+                            <label for="input1">Input4</label>
+                        </fieldset>
+                        <h6>Today</h6>
+                    </div>
+                    <div class="flex" id="input5">
+                        <fieldset>
+                            <input type="checkbox" name="input5" id="input5">
+                            <label for="input1">Input5</label>
+                        </fieldset>
+                        <h6>Today</h6>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="sideContent"></div>
+        <div class="sideContent grid"></div>
     </div>
 </body>
 </html>
