@@ -23,9 +23,19 @@ export class CreateElement {
     appendElement(parent) {
         parent.appendChild(this._buildable);
         console.log(`${this._buildable.classList} appended to ${parent}`)
-    }
+    };
+
+    removeElement(element) {
+        element.remove();
+        return this;
+    };
+
+    html(target,htmlContent) {
+        target.innerHtml = htmlContent;
+        return this;
+    };
 
     get elementData() {
         return this._buildable
-    }
+    };
 }
