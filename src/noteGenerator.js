@@ -2,16 +2,51 @@ import { CreateElement } from "./ElementGenerator";
 
 export class NoteGenerator {
     constructor(title,content,date) {
-        this.title = title;
-        this.content = content;
-        this.date = date;
+        if (typeof title === 'string' && 
+            typeof content === 'string' && 
+            typeof date === 'string') {
+                this.title = title;
+                this.content = content;
+                this.date = date;
+        } else {
+            console.error('Error - wrong input type')
+            return alert('Warning, invalid input type!')
+        }
     };
 
-    get stringDetails() {
-        return details = [this.title,this.content,this.date];
+    get noteArray() {
+        return [this.title,this.content,this.date];
     };
 }
 
-function appendNoteToMemory(note) {
+export function appendNoteToMemory(note) {
+        if (!localStorage.getItem(note.title)) {
+            const memory = JSON.stringify(note);
+            localStorage.setItem(note.title,memory);
+        } else {
+            return alert('Warning, a note whit this title already exists, change it or remove the other note first!')
+        };
+}
+
+export class Folder {
+    constructor(folderName, contentArray) {
+        if (typeof folderName === 'string' && typeof contentArray === 'array') {
+            this.title = folderName;
+            this.content = [...contentArray];    
+        } else {
+            console.error('Warning wrong content type')
+        }
+    }
     
+    appendToMemory(folder) {
+        if (folder.title != '') {
+            if (!localStorage.getItem(folder.title)) {
+                const memory = JSON.stringify(folder)
+                localStorage.setItem(folder.title, memory);
+            } else {
+                console.error('A folder with the same name already exists!')
+                return alert('Folder title already in use')
+            }
+        }
+    }
 }
