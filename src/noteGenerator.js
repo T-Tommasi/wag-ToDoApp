@@ -19,15 +19,6 @@ export class NoteGenerator {
     };
 }
 
-export function appendNoteToMemory(note) {
-        if (!localStorage.getItem(note.title)) {
-            const memory = JSON.stringify(note);
-            localStorage.setItem(note.title,memory);
-        } else {
-            return alert('Warning, a note whit this title already exists, change it or remove the other note first!')
-        };
-}
-
 export class Folder {
     constructor(folderName, contentArray) {
         if (typeof folderName === 'string' && typeof contentArray === 'array') {

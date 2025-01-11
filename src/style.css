@@ -74,9 +74,12 @@ nav {
     margin: 0;
 }
 
-.innerContainer {
+.innerContainer,.noteMenu {
     background-color: #FAFAFA;
     border-radius: 32px;
+}
+
+.innerContainer {
     margin: 0;
     padding: 2.5%;
 }
@@ -216,4 +219,20 @@ nav {
 #hourlyNote {
     grid-column: 3/6;
     grid-row: 1/6;
+}
+
+.noteMenu {
+    margin: auto;
+}
+
+.insertionForm {
+    place-content: center;
+    align-content: center;
+    gap: 15px;
+}
+
+.insertionForm>div.flex {
+    padding: 2%;
+    flex-direction: column;
+    gap: 3px;
 }
