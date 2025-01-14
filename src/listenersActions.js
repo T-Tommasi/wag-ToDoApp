@@ -7,4 +7,11 @@ export default class ListenerType {
             modalManager.modalOpen(NOTEDIALOG);
         })
     }
+
+    static dialogCloser(source) {
+        source.addEventListener('click', () => {
+            const NOTEDIALOG = document.querySelector('.noteMenu');
+            modalManager.modalClose(NOTEDIALOG);
+        })
+    }
 }

@@ -9,7 +9,9 @@ function appInstance()  {
     
     function listeners() {
         const NOTEBUTTON = document.querySelector('#newNote');
+        const SUBMITBUTTON = document.querySelector('#submitNote')
         ListenerType.noteMenu(NOTEBUTTON);
+        ListenerType.dialogCloser(SUBMITBUTTON);
     };
 
     function instanceLauncher() {
