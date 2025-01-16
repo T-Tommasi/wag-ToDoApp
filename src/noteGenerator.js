@@ -14,6 +14,18 @@ export class NoteGenerator {
         }
     };
 
+    set folder(folderName) {
+        if (folderName === 'string' || folderName === '') {
+            if (folderName) {
+                this.folder = folderName;
+            } else {
+                this.folder = 'default folder'
+            }
+        } else {
+            console.error('Warning folderName is not in an acceptable format')
+        }
+    }
+
     get noteArray() {
         return [this.title,this.content,this.date];
     };
