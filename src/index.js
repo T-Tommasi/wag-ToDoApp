@@ -2,7 +2,7 @@ import html from './template.html';
 import './style.css';
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import { calendarInstance } from './calendarImporter';
-import ListenerType from './listenersActions';
+import { ListenerType } from './UiManager';
 
 function appInstance()  {
     

@@ -1,4 +1,4 @@
-import { NoteGenerator } from "./note";
+import { NoteGenerator } from "./noteGenerator";
 import { CreateElement } from "./ElementGenerator";
 
 export class modalManager {
