@@ -2,7 +2,8 @@ import html from './template.html';
 import './style.css';
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import { calendarInstance } from './calendarImporter';
-import { ListenerType } from './UiManager';
+import { ListenerType,modalManager, } from './UiManager';
+import { Memorize,RetrieveMemory } from './storageLogic';
 
 function appInstance()  {
     
