@@ -8,10 +8,12 @@ export class Memorize {
     }
 
     static memorizeNote(noteArray) {
-        if (typeof noteArray === 'array') {
+        if (noteArray.isArray()) {
             let UUID = uuidv4();
             const MEMORIZE = stringify(noteArray);
             localStorage.setItem(UUID,noteArray);
+        } else {
+            console.error('Warning - parsed array is NOT an array')
         }
     }
 }
@@ -21,5 +23,17 @@ export class RetrieveMemory {
         if (typeof UUID === 'string') {
             localStorage.getItem(UUID);
         }
+    }
+
+    static retrieveAllItems() {
+        const keys = Object.keys(localStorage)
+        const notesArray = []
+        for (let key of keys) {
+            console.log(key);
+            let element = JSON.parse(localStorage.getItem(key));
+            notesArray.push(element); //pushes to notesArray all the elements in memory
+        }
+
+        return notesArray
     }
 }

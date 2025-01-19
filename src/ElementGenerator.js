@@ -30,8 +30,8 @@ export class CreateElement {
         return this;
     };
 
-    html(target,htmlContent) {
-        target.innerHtml = htmlContent;
+    html(htmlContent) {
+        this.innerHtml = htmlContent;
         return this;
     };
 

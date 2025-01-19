@@ -1,6 +1,7 @@
 import { NoteGenerator } from "./noteGenerator";
 import { CreateElement } from "./ElementGenerator";
 import { createElement } from "@fullcalendar/core/preact.js";
+import { Memorize,RetrieveMemory } from "./storageLogic";
 
 export class modalManager {
     static modalOpen(dialog) {
@@ -55,4 +56,18 @@ export function noteInputs() {
             }
         }
     };
+}
+
+export class recentNotes {
+    //this method will take all elements from memory and then show them on the recent notes.
+    static recentNotes(display) {
+        const memorizedNoted = RetrieveMemory.retrieveAllItems();
+        for (let note of memorizedNoted) {
+            const element = new CreateElement('div')
+                .addClass(['innerNote','flex'])
+                .addId(note.UUID)
+                .html(`<p>${note._title}</p><p>${note._date}</p>`)
+                .appendElement(display);
+        }
+    }
 }
