@@ -37,10 +37,11 @@ export class ListenerType {
     }
 }
 
-export function noteInputs() {
+export function getInput(button) {
     function noteGenerationListener(submitButton) {
         submitButton.addEventListener('click', () => {
             const DATA = setContent(); //Stores the values inserted in the dialog to memorize and push them to the UI
+            Memorize.memorizeNote(DATA)
         })
 
         function setContent() {
@@ -50,15 +51,19 @@ export function noteInputs() {
             const NOTE = new NoteGenerator(_title,_content,_date);
             if (!NOTE.folder) {
                 NOTE.folder = 'default'; //if there is no specified folder, set the folder as default and then return the NOTE objects.
-                return NOTE;
-            } else {
-                return NOTE;
-            }
+            };
+            return NOTE
         }
     };
+
+    function instance() {
+        noteGenerationListener(button)
+    }
+
+    instance()
 }
 
-export class recentNotes {
+export class Appender {
     //this method will take all elements from memory and then show them on the recent notes.
     static recentNotes(display) {
         const memorizedNoted = RetrieveMemory.retrieveAllItems();
@@ -68,6 +73,7 @@ export class recentNotes {
                 .addId(note.UUID)
                 .html(`<p>${note._title}</p><p>${note._date}</p>`)
                 .appendElement(display);
+            console.log(element);
         }
     }
 }

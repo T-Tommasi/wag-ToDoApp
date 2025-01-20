@@ -15,7 +15,8 @@ export class NoteGenerator {
     };
 
     set folder(folderName) {
-        if (folderName === 'string' || folderName === '') {
+        if (folderName === 'string' || !folderName)
+        {
             if (folderName) {
                 this.folder = folderName;
             } else {
