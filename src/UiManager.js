@@ -12,7 +12,7 @@ export class modalManager {
         }
     }
 
-    static modalClose(dialog) {
+    static modalClose(dialog,recentNotesId) {
         if (dialog) {
             dialog.close()
         } else {
@@ -29,10 +29,11 @@ export class ListenerType {
         })
     }
 
-    static dialogCloser(source) {
+    static dialogCloser(source,recentNotesId) {
         source.addEventListener('click', () => {
             const _NOTEDIALOG = document.querySelector('.noteMenu');
             modalManager.modalClose(_NOTEDIALOG);
+            Appender.recentNotes(recentNotesId);            
         })
     }
 }
@@ -68,12 +69,21 @@ export class Appender {
     static recentNotes(display) {
         const memorizedNoted = RetrieveMemory.retrieveAllItems();
         for (let note of memorizedNoted) {
-            const element = new CreateElement('div')
-                .addClass(['innerNote','flex'])
+            const parentUl = new CreateElement('li')
                 .addId(note.UUID)
-                .html(`<p>${note._title}</p><p>${note._date}</p>`)
-                .appendElement(display);
-            console.log(element);
+                const element = new CreateElement('div')
+                    .addClass(['innerNote'])
+                    .addClass(['flex'])
+                    .addId(note.UUID)
+                    .html(`<p>${note.title}</p><p>${note.date}</p>`)
+                    .appendElement(parentUl._buildable)
+            parentUl.appendElement(display)
+            console.log(element,parentUl);
         }
+    }
+
+    static initialize(appendParent) {
+        this.recentNotes(appendParent);
+        console.log(`element appended to ${appendParent}`);
     }
 }
