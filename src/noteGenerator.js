@@ -1,13 +1,16 @@
 import { CreateElement } from "./ElementGenerator";
+import { stringify, v4 as uuidv4 } from 'uuid';
 
 export class NoteGenerator {
-    constructor(title,content,date) {
+    constructor(title,content,date,folder) {
         if (typeof title === 'string' && 
             typeof content === 'string' && 
             typeof date === 'string') {
                 this.title = title;
                 this.content = content;
                 this.date = date;
+                this.folder = folder;
+                this.UUID = uuidv4();
         } else {
             console.error('Error - wrong input type')
             return alert('Warning, invalid input type!')

@@ -157,10 +157,18 @@ nav {
 }
 
 .taskContainer>div {
-    border-bottom: lightgrey 1px dashed;
+    border: lightgrey 1px dashed;
     padding: 2%;
     justify-content: space-between;
     align-items: center;
+    border-radius: 15px;
+}
+
+#noSelection {
+    color: #719191;
+    font-size: 2em;
+    justify-content: center;
+    text-align: center;
 }
 
 .sideContent {

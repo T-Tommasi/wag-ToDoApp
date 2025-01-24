@@ -48,6 +48,12 @@
                                 <label for="content">Note content: </label>
                                 <textarea name="content" id="content" cols="30" rows="10"></textarea>
                             </div>
+                            <div class="flex">
+                                <label for="folder">Folder:</label>
+                                <select id="folder" name="folder">
+                                    <option value="default">Default folder</option>
+                                </select>
+                            </div>
                             <button id="submitNote" type="button">Submit</button>
                         </form>
                     </dialog>
@@ -99,48 +105,19 @@
             </div>
             <div class="innerContainer" id="tasks">
                 <div class="head flex">
-                    <h3>Tasks: </h3>
-                    <h6>See all...</h6>
+                    <h3>Note details: </h3>
                 </div>
                 <div class="taskContainer flex">
-                    <div class="flex" id="input1">
-                        <fieldset>
-                            <input type="checkbox" name="input1" id="input1">
-                            <label for="input1">Input1</label>
-                        </fieldset>
-                        <h6>Today</h6>
-                    </div>
-                    <div class="flex" id="input2">
-                        <fieldset>
-                            <input type="checkbox" name="input2" id="input2">
-                            <label for="input1">Input2</label>
-                        </fieldset>
-                        <h6>Today</h6>
-                    </div>
-                    <div class="flex" id="input3">
-                        <fieldset>
-                            <input type="checkbox" name="input3" id="input3">
-                            <label for="input1">Input3</label>
-                        </fieldset>
-                        <h6>Today</h6>
-                    </div>
-                    <div class="flex" id="input4">
-                        <fieldset>
-                            <input type="checkbox" name="input4" id="input4">
-                            <label for="input1">Input4</label>
-                        </fieldset>
-                        <h6>Today</h6>
-                    </div>
-                    <div class="flex" id="input5">
-                        <fieldset>
-                            <input type="checkbox" name="input5" id="input5">
-                            <label for="input1">Input5</label>
-                        </fieldset>
-                        <h6>Today</h6>
+                    <div class="innernote">
+                        <div class="innernote flex" id="noSelection">
+                            <p>Click on a note title to open it here!</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <dialog class="innerNote flex" id="displayNewNote">
+        </dialog>
         <div class="sideContent grid">
             <div class="flex" id="profileName">
                 <p>Welcome back,<br><strong>Name Surname</strong></p>

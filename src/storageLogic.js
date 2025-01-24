@@ -9,10 +9,8 @@ export class Memorize {
 
     static memorizeNote(noteArray) {
         if (Array.isArray(noteArray)|| typeof noteArray === 'object') {
-            let _UUIDRAW = uuidv4();
-            let UUID = JSON.stringify(_UUIDRAW)
             const MEMORIZE = JSON.stringify(noteArray);
-            localStorage.setItem(UUID,MEMORIZE);
+            localStorage.setItem(noteArray.UUID,MEMORIZE);
         } else {
             console.error('Warning - parsed array is NOT an array')
         }

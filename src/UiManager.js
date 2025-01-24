@@ -36,6 +36,17 @@ export class ListenerType {
             Appender.recentNotes(recentNotesId);            
         })
     }
+
+    static noteOpener(sources,dialog) {
+        for (let source of sources) {
+            source.addEventListener('click', () => {
+                const UUID = source.getAttribute('id').toString();
+                const DATA = JSON.parse(RetrieveMemory.retrieveItem(UUID));
+                Appender.displayNoteDialog(dialog,DATA);
+                modalOpen(dialog)
+            })
+        }
+    }
 }
 
 export function getInput(button) {
@@ -49,7 +60,8 @@ export function getInput(button) {
             let _title = document.querySelector('#noteTitle').value;
             let _date = document.querySelector('#date').value;
             let _content = document.querySelector('#content').value;
-            const NOTE = new NoteGenerator(_title,_content,_date);
+            let _folder = document.querySelector('#folder').value;
+            const NOTE = new NoteGenerator(_title,_content,_date,_folder);
             if (!NOTE.folder) {
                 NOTE.folder = 'default'; //if there is no specified folder, set the folder as default and then return the NOTE objects.
             };
@@ -74,12 +86,29 @@ export class Appender {
                 const element = new CreateElement('div')
                     .addClass(['innerNote'])
                     .addClass(['flex'])
+                    .addClass(['newNoteListenerGrabber'])
                     .addId(note.UUID)
-                    .html(`<p>${note.title}</p><p>${note.date}</p>`)
+                    .html(`
+                        <p>${note.title}</p>
+                        <p>${note.date}</p>
+                        `)
                     .appendElement(parentUl._buildable)
             parentUl.appendElement(display)
             console.log(element,parentUl);
         }
+    }
+
+    static displayNoteDialog(dialog,noteObject) { //method for displaying the note onto a specific dialog
+        let element = new CreateElement('div')
+            .addClass('innerNote')
+            .addId(`${noteObject.UUID}`)
+            .html(`
+                <h1>${noteObject.title}</h1>
+                <p>${noteObject.date}</p>
+                <main>${noteObject.content}</main>
+                `)
+            .appendElement(dialog);
+            console.log(`element ${element} appended!`)
     }
 
     static initialize(appendParent) {
@@ -87,3 +116,4 @@ export class Appender {
         console.log(`element appended to ${appendParent}`);
     }
 }
+
