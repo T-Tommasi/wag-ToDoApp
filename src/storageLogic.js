@@ -1,11 +1,6 @@
 import { stringify, v4 as uuidv4 } from 'uuid';
 
 export class Memorize {
-    static memorizeFolder(folderName) {
-        if (typeof folderName === 'string') {
-            folderContent = []
-        }
-    }
 
     static memorizeNote(noteArray) {
         if (Array.isArray(noteArray)|| typeof noteArray === 'object') {
@@ -36,5 +31,16 @@ export class RetrieveMemory {
         }
 
         return notesArray
+    }
+
+    static retrieveAllFolders() {
+        const KEYS = Object.keys(localStorage);
+        const foldersArray = [];
+        for (let key of keys) {
+            console.log(`parsing ${key} from localStorage`);
+            let element = JSON.parse(localStorage.getItem(key));
+            foldersArray.push(element.folder)
+        }
+        return foldersArray
     }
 }

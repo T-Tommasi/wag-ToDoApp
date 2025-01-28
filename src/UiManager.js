@@ -78,6 +78,7 @@ export function getInput(button) {
 export class Appender {
     //this method will take all elements from memory and then show them on the recent notes.
     static recentNotes(display) {
+        display.innerHTML = '';
         const memorizedNoted = RetrieveMemory.retrieveAllItems();
         for (let note of memorizedNoted) {
             const parentUl = new CreateElement('li')
@@ -91,9 +92,25 @@ export class Appender {
                         <p>${note.title}</p>
                         <p>${note.date}</p>
                         `)
-                    .appendElement(parentUl._buildable)
+                    .appendElement(parentUl._buildable);
             parentUl.appendElement(display)
             console.log(element,parentUl);
+        }
+    }
+
+    static folders(display) {
+        const _folders = RetrieveMemory.retrieveAllFolders()
+        for (_folder of _folders) {
+            const _appearance = new CreateElement('div')
+                .addClass('flex')
+                .addClass('flexCentral')
+                .addId(`${_folder.UUID}`)
+                .html(`
+                <i class='fa-solid fa-folder fa-6x'></i>
+                <h5>${_folder.folder}</h5>
+                `)
+                .appendElement(display);
+            console.log(`appended ${_appearance}!`)
         }
     }
 
@@ -115,6 +132,13 @@ export class Appender {
     static initialize(appendParent) {
         this.recentNotes(appendParent);
         console.log(`element appended to ${appendParent}`);
+    }
+
+    static cleanse(element) {
+        element.innerHTML='';
+        console.log('------')
+        console.log(`${element} cleansed!`)
+        console.log('------')
     }
 }
 

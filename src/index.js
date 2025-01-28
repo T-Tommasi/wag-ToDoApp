@@ -22,9 +22,10 @@ function appInstance()  {
     }
 
     function instanceLauncher() {
+        Appender.cleanse(NEWNOTESDISPLAY);
         buttonListeners();
-        Appender.initialize(NEWNOTESDISPLAY)
         calendarInstance;
+        Appender.initialize(NEWNOTESDISPLAY)
         openNoteListener();
     };
 
