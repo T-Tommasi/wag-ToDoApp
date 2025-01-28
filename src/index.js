@@ -7,21 +7,25 @@ import { ListenerType,Appender,getInput } from './UiManager';
 function appInstance()  {
     const NEWNOTESDISPLAY = document.querySelector('#recentNotes')
     
-    function listeners() {
+    function buttonListeners() {
         const NOTEBUTTON = document.querySelector('#newNote');
         const SUBMITBUTTON = document.querySelector('#submitNote');
-        const NEWNOTESLISTENERS = document.querySelectorAll('.newNoteListenerGrabber');
-        const NOTEDISPLAY = document.querySelector('#displayNewNote');
         getInput(SUBMITBUTTON);
         ListenerType.noteMenu(NOTEBUTTON);
         ListenerType.dialogCloser(SUBMITBUTTON,NEWNOTESDISPLAY);
-        ListenerType.noteOpener(NEWNOTESLISTENERS,NOTEDISPLAY)
     };
 
+    function openNoteListener() {
+        const NEWNOTESLISTENERS = document.querySelectorAll('.newNoteGrabber');
+        const NOTEDISPLAY = document.querySelector('.taskContainer');
+        ListenerType.noteOpener(NEWNOTESLISTENERS,NOTEDISPLAY)
+    }
+
     function instanceLauncher() {
-        listeners();
+        buttonListeners();
         Appender.initialize(NEWNOTESDISPLAY)
-        calendarInstance
+        calendarInstance;
+        openNoteListener();
     };
 
     instanceLauncher()

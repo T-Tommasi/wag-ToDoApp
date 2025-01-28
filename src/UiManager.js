@@ -43,7 +43,6 @@ export class ListenerType {
                 const UUID = source.getAttribute('id').toString();
                 const DATA = JSON.parse(RetrieveMemory.retrieveItem(UUID));
                 Appender.displayNoteDialog(dialog,DATA);
-                modalOpen(dialog)
             })
         }
     }
@@ -86,7 +85,7 @@ export class Appender {
                 const element = new CreateElement('div')
                     .addClass(['innerNote'])
                     .addClass(['flex'])
-                    .addClass(['newNoteListenerGrabber'])
+                    .addClass(['newNoteGrabber'])
                     .addId(note.UUID)
                     .html(`
                         <p>${note.title}</p>
@@ -99,13 +98,15 @@ export class Appender {
     }
 
     static displayNoteDialog(dialog,noteObject) { //method for displaying the note onto a specific dialog
+        dialog.innerHTML = ''
         let element = new CreateElement('div')
-            .addClass('innerNote')
+            .addClass(['displayedNotes'])
             .addId(`${noteObject.UUID}`)
             .html(`
                 <h1>${noteObject.title}</h1>
                 <p>${noteObject.date}</p>
                 <main>${noteObject.content}</main>
+                <footer class='noteFolder'>${noteObject.folder}</footer>
                 `)
             .appendElement(dialog);
             console.log(`element ${element} appended!`)

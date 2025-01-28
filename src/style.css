@@ -152,16 +152,12 @@ nav {
     font-size: clamp(2em, 5vw, 10em);
 }
 
-.taskContainer {
-    flex-direction: column;
-}
-
 .taskContainer>div {
     border: lightgrey 1px dashed;
     padding: 2%;
-    justify-content: space-between;
     align-items: center;
     border-radius: 15px;
+    width: 100%;
 }
 
 #noSelection {
@@ -169,6 +165,14 @@ nav {
     font-size: 2em;
     justify-content: center;
     text-align: center;
+}
+
+#displayedNotes {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 3%;
 }
 
 .sideContent {
@@ -243,4 +247,10 @@ nav {
     padding: 2%;
     flex-direction: column;
     gap: 3px;
+}
+
+.noteFolder {
+    color: #719191;
+    font-size: 0.5em;
+    text-align: right;
 }

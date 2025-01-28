@@ -20,7 +20,9 @@ export class Memorize {
 export class RetrieveMemory {
     static retrieveItem(UUID) {
         if (typeof UUID === 'string') {
-            localStorage.getItem(UUID);
+            const DATA = localStorage.getItem(UUID);
+            console.log(DATA);
+            return DATA
         }
     }
 
