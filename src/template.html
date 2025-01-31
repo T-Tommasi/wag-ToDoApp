@@ -6,4 +6,24 @@
     <title>Wag to-do!</title>
 </head>
 <body>
+    <div class="grid container">
+        <nav class="flexColumn" id="leftMenu">
+            <img src="To-Do.png" alt="App logo" id="logo">
+            <ul class="flexColumn">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">What is this?</a></li>
+                <li><a href="#">GitHub</a></li>
+            </ul>
+            <div class="flexRow" id="navigationButtons">
+                <button type="button" id="newWorkspace">New workspace</button>
+                <button type="button" id="memoryCleanse">Remove all data</button>
+            </div>
+        </nav>
+        <div class="grid" id="workspace">
+            <div class="noteSquare grid"></div>
+            <button type="button" id="addNoteBtn">New note</button>
+        </div>
+        <div id="calendar"></div>
+        <div id="news" class="flex"></div>
+    </div>
 </body>

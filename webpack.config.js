@@ -35,6 +35,10 @@ config = {
             {
                 test: /\.html$/i,
                 use: 'html-loader'
+            },
+            {
+                test: /\.(png|jpeg|jpg|gif|webp|svg)&/i,
+                use: 'asset/resource'
             }
         ],
     },
