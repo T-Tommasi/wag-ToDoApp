@@ -1,5 +1,5 @@
 * {
-    border: red 1px ;
+    border: red 1px solid;  /*debug code - to be removed on prod*/
     box-sizing: border-box;
 }
 
@@ -14,36 +14,13 @@ body {
     padding: 0;
 }
 
-nav {
-    grid-column: 1 / 3;
-    grid-row: 1 / 13;
-    align-items: center;
-    background-color: #443742;
-}
-
-nav ul {
-    height: clamp(60dvh, 40dvh, 20dvh);
-    align-content: center;
-}
-
-nav li {
-    list-style: none;
-    margin: 4%;
-    text-align: center;
-}
-
-nav a {
-    text-decoration: none;
-    color: #CEA07E;
-    width: 100%;
-    font-size: clamp(2.5em, 2em, 1em);
-}
+/*utility classes*/
 
 .grid{
     display: grid;
 }
 
-.flexRow,.flexColumn,.flex {
+.flexRow,.flexColumn {
     display: flex;
 }
 
@@ -65,25 +42,95 @@ nav a {
     height: 100dvh;
 }
 
-#navigationButtons {
+/*Left navigation menu style*/
+
+#leftMenu {
+    grid-column: 1 / 3;
+    grid-row: 1 / 13;
+    align-items: center;
+    background-color: #443742;
+    justify-content: space-between;
+}
+
+/*navigation list styles*/
+
+#leftMenu ul {
     justify-content: space-around;
-    gap: 15px;
+    height: clamp(20dvh, 40dvh, 60dvh);
+    align-content: center;
+}
+
+#leftMenu li {
+    list-style: none;
+    margin: 4%;
+    text-align: center;
+}
+
+#leftMenu a {
+    text-decoration: none;
+    color: #CEA07E;
+    width: 100%;
+    font-size: clamp(1rem, 5vh, 10rem);
+}
+
+/*logo and app name*/
+
+#logoContainer {
+    width: 100%;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    gap: 1vh;
+}
+
+#logoContainer>h1{
+    color: #CEA07E;
+    font-size: clamp(0.5rem,5vh,2rem);
 }
 
 #logo {
     max-width: 100%;
-    height: clamp(30dvh,20dvh,10dvh);
+    height: clamp(3dvh,5dvh,15dvh);
 }
 
+/*nav menu specific buttons*/
+
 #navigationButtons {
+    justify-content: space-around;
+    gap: 2vh;
     height: 5dvh;
+    margin: 2%;
 }
 
 #navigationButtons>button {
-    font-size: clamp(1em,0.5em,0.2em);
+    font-size: clamp(1rem,1vh,1.5rem);
+    border-radius: 1rem;
 }
 
-#leftMenu ul {
-    justify-content: space-around;
-    align-items: center;
+/*Workspace area*/
+
+#workspace {
+    grid-column: 3/11;
+    grid-row: 2/13;
+    width: 100%;
+    height: 100%;
+    grid-template: repeat(12,1fr)/repeat(12,1fr);
+    border-radius: 0 2rem 2rem 0;
+    border-right: 1vh solid #443742;
+    border-top: 1px solid #443742;
+    box-shadow: 11px 0px 15px -3px rgba(0,0,0,0.1),11px 0px 45px -24px rgba(0,0,0,0.1),11px -3px 19px -40px rgba(0,0,0,0.1);
 }
+
+/*workspace buttons management*/
+
+#addNoteBtn{
+    grid-column: 11/13;
+    grid-row: 12/13;
+    padding: 2vh;
+    margin: 2vh;
+    font-size: clamp(1rem,1vh,1.5rem);
+    border-radius: 2rem 0.5rem 2rem 0.5rem;
+}
+
+/*inner workspace elements*/
+/*noteCards*/

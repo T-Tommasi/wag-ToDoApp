@@ -43,8 +43,4 @@ export class CreateElement {
         this._buildable.innerHTML = htmlContent;
         return this;
     };
-
-    get elementData() {
-        return this._buildable
-    };
 }
