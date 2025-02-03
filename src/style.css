@@ -12,6 +12,7 @@ html {
 body {
     margin: 0;
     padding: 0;
+    background-color: #DCDCDC;
 }
 
 /*utility classes*/
@@ -109,6 +110,32 @@ body {
 
 /*Workspace area*/
 
+.workspaceLabels {
+    grid-column: 3/11;
+    list-style: none;
+    margin: 0;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 0.2rem;
+}
+
+.workspaceLabels li {
+    font-size: clamp(0.5em,1.2rem,2em);
+    padding: 2%;
+    border-radius: 1.5rem 1.5rem 0 0;
+    border: #443742 1px solid;
+    border-bottom: none;
+    box-shadow: inset 7px 7px 16px -6px rgba(0,0,0,0.1),inset 7px 9px 25px -12px rgba(0,0,0,0.1);
+    background-color: #443742;
+    color: #CEA07E;
+    transition: background-color 1s ease-in-out, color 1s ease-in-out;
+}
+
+.workspaceLabels li:hover {
+    background-color: #CEA07E;
+    color: #443742;
+}
+
 #workspace {
     grid-column: 3/11;
     grid-row: 2/13;
@@ -120,12 +147,13 @@ body {
     border-top: 1px solid #443742;
     box-shadow: 11px 0px 15px -3px rgba(0,0,0,0.1),11px 0px 45px -24px rgba(0,0,0,0.1),11px -3px 19px -40px rgba(0,0,0,0.1);
     padding: 2%;
+    background-color: #F0F0F0;
 }
 
 /*workspace buttons management*/
 
 #addNoteBtn{
-    grid-column: 11/13;
+    grid-column: 10/13;
     grid-row: 12/13;
     padding: 2vh;
     margin: 2vh;
@@ -143,6 +171,7 @@ body {
     padding: 5%;
     box-shadow: 6px 7px 41px -3px rgba(0,0,0,0.1),3px 3px 17px -12px rgba(0,0,0,0.1),inset 6px 6px 22px -9px rgba(0,0,0,0.1);
     border-radius: 2rem;
+    border: #CEA07E 1px solid;
     border-left: #CEA07E 0.5rem solid;
 }
 
@@ -153,12 +182,21 @@ body {
     grid-row: 1/2;
 }
 
+.cardTitle small {
+    text-align: right;
+}
+
 .cardNoteContent {
     grid-column: 1/7;
     grid-row: 2/6;
     overflow: scroll;
     margin: 3% 0;
-    border: black 1px dashed;
+    padding: 2%;
+
+}
+
+.cardNoteContent>p {
+    margin: auto;
 }
 
 .cardNoteButtons {
@@ -166,12 +204,14 @@ body {
     grid-row: 6/7;
     gap: 15px;
     justify-content: space-around;
+    align-items: center;
 }
 
 .cardNoteButtons>button {
     font-size: clamp(0.5em,1.5rem,1.2em);
     border-radius: 0.8rem;
     width: 45%;
+    height: 70%;
 }
 
 /*specific card buttons styling*/
@@ -184,4 +224,27 @@ body {
 #complete {
     background-color: #CEA07E;
     color: #443742;
+}
+
+/*end of cards styling*/
+/*end of workspace styling*/
+
+/*external plugins holders styling*/
+#calendar,#news {
+    margin: 0.5rem;
+    border-radius: 1rem;
+    box-shadow: 6px 7px 41px -3px rgba(0,0,0,0.1),3px 3px 17px -12px rgba(0,0,0,0.1),inset 6px 6px 22px -9px rgba(0,0,0,0.1);
+    background-color: #F0F0F0;
+    border: #443742 solid 1px;
+    border-right: #443742 0.5rem solid;
+}
+
+#calendar {
+    grid-column: 11/13;
+    grid-row: 2/7;
+}
+
+#news {
+    grid-column: 11/13;
+    grid-row: 7/13;
 }
