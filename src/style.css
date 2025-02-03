@@ -119,6 +119,7 @@ body {
     border-right: 1vh solid #443742;
     border-top: 1px solid #443742;
     box-shadow: 11px 0px 15px -3px rgba(0,0,0,0.1),11px 0px 45px -24px rgba(0,0,0,0.1),11px -3px 19px -40px rgba(0,0,0,0.1);
+    padding: 2%;
 }
 
 /*workspace buttons management*/
@@ -134,3 +135,53 @@ body {
 
 /*inner workspace elements*/
 /*noteCards*/
+
+.noteSquare {
+    grid-template: repeat(6,1fr)/repeat(6,1fr);
+    width: 30dvh;
+    height: 40dvh;
+    padding: 5%;
+    box-shadow: 6px 7px 41px -3px rgba(0,0,0,0.1),3px 3px 17px -12px rgba(0,0,0,0.1),inset 6px 6px 22px -9px rgba(0,0,0,0.1);
+    border-radius: 2rem;
+    border-left: #CEA07E 0.5rem solid;
+}
+
+/*notecards inner styling*/
+
+.cardTitle {
+    grid-column: 1/7;
+    grid-row: 1/2;
+}
+
+.cardNoteContent {
+    grid-column: 1/7;
+    grid-row: 2/6;
+    overflow: scroll;
+    margin: 3% 0;
+    border: black 1px dashed;
+}
+
+.cardNoteButtons {
+    grid-column: 1/7;
+    grid-row: 6/7;
+    gap: 15px;
+    justify-content: space-around;
+}
+
+.cardNoteButtons>button {
+    font-size: clamp(0.5em,1.5rem,1.2em);
+    border-radius: 0.8rem;
+    width: 45%;
+}
+
+/*specific card buttons styling*/
+
+#removal {
+    background-color: #443742;
+    color: red;
+}
+
+#complete {
+    background-color: #CEA07E;
+    color: #443742;
+}

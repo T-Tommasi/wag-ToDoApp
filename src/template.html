@@ -23,7 +23,23 @@
             </div>
         </nav>
         <div class="grid" id="workspace">
-            <div class="noteSquare grid"></div>
+            <article class="noteSquare grid">
+                <header class="cardTitle flexColumn">
+                    <h1>This note title!</h1>
+                    <small>1/1/2111</small>
+                </header>
+                <main class="cardNoteContent">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Ducimus distinctio exercitationem, nesciunt nisi libero sed ut voluptas cum veniam ad quod,
+                        deleniti ipsa modi magnam expedita vel totam eligendi cumque.
+                    </p>
+                </main>
+                <footer class="cardNoteButtons flexRow">
+                    <button type="button" id="removal">Remove!</button>
+                    <button type="button" id="complete">Done!</button>
+                </footer>
+            </article>
             <button type="button" id="addNoteBtn">New note</button>
         </div>
         <div id="calendar"></div>
