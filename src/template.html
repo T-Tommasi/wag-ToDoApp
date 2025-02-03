@@ -45,6 +45,29 @@
                 </footer>
             </article>
             <button type="button" id="addNoteBtn">New note</button>
+            <dialog class="dialogAppearance" id="newNote">
+                <form class="flexColumn">
+                    <header>
+                        <h2>Write here your note!</h2>
+                    </header>
+                    <div class="flexRow">
+                        <label for="title">Who am I?</label>
+                        <input type="text" name="title" id="title">
+                    </div>
+                    <div class="flexRow">
+                        <label for="date">When do you need me?</label>
+                        <input type="date" name="date" id="date">
+                    </div>
+                    <div class="flexRow">
+                        <label for="content">What should I note?</label>
+                        <textarea name="content" id="content" cols=10" rows="2">I'm eagerly waiting for your text!</textarea>
+                    </div>
+                    <div class="flexRow">
+                        <button type="button" id="submitNoteBtn">I'm sure!</button>
+                        <button type="button" id="reset">Nope</button>
+                    </div>
+                </form>
+            </dialog>
         </div>
         <div id="calendar"></div>
         <div id="news" class="flex"></div>
