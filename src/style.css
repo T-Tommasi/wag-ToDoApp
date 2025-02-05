@@ -248,3 +248,40 @@ body {
     grid-column: 11/13;
     grid-row: 7/13;
 }
+
+/*styling for dialogs in general -- this is shared!*/
+
+.dialogAppearance {
+    border: #443742 1px solid;
+    border-top: #443742 0.5rem solid;
+    border-radius: 2rem;
+}
+
+.dialogAppearance::backdrop {
+    backdrop-filter: blur(8px);
+}
+
+/*styling for specific dialogs*/
+
+#newNote {
+    width: 30dvh;
+    height: 40dvh;
+}/*this dialog appears when you try to create a new note trought the button 'new note' inside the workspace*/
+
+#newNote form {
+    gap: 0.5rem;
+} 
+
+#newNote label{
+    font-size: 0.8rem;
+    font-style: italic; 
+}
+
+#newNote div:last-child {
+    justify-content: space-around;
+    align-items: center;
+}
+
+#newNote button {
+    width: clamp(8dvh,10dvh,15dvh);
+}

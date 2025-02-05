@@ -1,9 +1,9 @@
 import { CreateElement } from "./ElementGenerator";
 
 export class DialogManager {
-    static modalOpener(dialog) {
-        if (typeof dialog === 'object') {
-            dialog.addEventListener('click', () => {
+    static modalOpener(source,dialog) {
+        if (typeof source === 'object') {
+            source.addEventListener('click', () => {
                 dialog.showModal();
                 return
             })

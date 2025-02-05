@@ -50,17 +50,23 @@
                     <header>
                         <h2>Write here your note!</h2>
                     </header>
-                    <div class="flexRow">
+                    <div class="flexColumn">
                         <label for="title">Who am I?</label>
-                        <input type="text" name="title" id="title">
+                        <input type="text" name="title" id="title" placeholder="I'm bob!">
                     </div>
-                    <div class="flexRow">
+                    <div class="flexColumn">
                         <label for="date">When do you need me?</label>
                         <input type="date" name="date" id="date">
                     </div>
-                    <div class="flexRow">
+                    <div class="flexColumn">
                         <label for="content">What should I note?</label>
                         <textarea name="content" id="content" cols=10" rows="2">I'm eagerly waiting for your text!</textarea>
+                    </div>
+                    <div class="flexColumn">
+                        <label for="workspace">Where should i go?</label>
+                        <select name="workspace" id="workspace">
+                            <option value="main">Main</option>
+                        </select>
                     </div>
                     <div class="flexRow">
                         <button type="button" id="submitNoteBtn">I'm sure!</button>
