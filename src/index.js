@@ -12,11 +12,11 @@ function appInstance() {
 
     function _listeners() {
         DialogManager.modalOpener(NEWNOTEBTN,NEWNOTEDLG);
-        DialogManager.dialogCloser(RESETNOTEBTN);
-        SUBMITNOTEBTN.addEventListener('click', submitBtn());
+        RESETNOTEBTN.addEventListener('click',() => DialogManager.dialogCloser(NEWNOTEDLG));
+        SUBMITNOTEBTN.addEventListener('click',() => submitBtn(NEWNOTEDLG));
     };
 
-    function submitBtn() {
+    function submitBtn(dialog) {
         const title = document.querySelector('#title').value;
         const date = document.querySelector('#date').value;
         const content = document.querySelector('#content').value;
@@ -28,6 +28,7 @@ function appInstance() {
         } else {
             const note = new Note(title,date,content,workspace);
             note.storeToMemory();
+            dialog.close()
         };
     };
 
