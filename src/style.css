@@ -136,7 +136,7 @@ body {
     color: #443742;
 }
 
-#workspace {
+.activeWorkspace {
     grid-column: 3/11;
     grid-row: 2/13;
     width: 100%;

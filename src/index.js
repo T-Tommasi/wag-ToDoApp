@@ -9,6 +9,7 @@ function appInstance() {
     const NEWNOTEDLG = document.querySelector('#newNote');
     const RESETNOTEBTN = document.querySelector('#reset');
     const SUBMITNOTEBTN = document.querySelector('#submitNoteBtn');
+    let activeWorkspace = document.querySelector('#activeWorkspace')
 
     function _listeners() {
         DialogManager.modalOpener(NEWNOTEBTN,NEWNOTEDLG);
@@ -28,7 +29,8 @@ function appInstance() {
         } else {
             const note = new Note(title,date,content,workspace);
             note.storeToMemory();
-            dialog.close()
+            note.generateNoteToUi(activeWorkspace);
+            dialog.close();
         };
     };
 

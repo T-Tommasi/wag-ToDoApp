@@ -20,7 +20,7 @@ export class CreateElement {
         return this
     }
 
-    appendElement(parent) {
+    append(parent) {
         parent.appendChild(this._buildable);
         console.log(`${this._buildable.classList} appended to ${parent}`)
     };
