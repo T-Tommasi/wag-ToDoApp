@@ -25,15 +25,6 @@ export class CreateElement {
         console.log(`${this._buildable.classList} appended to ${parent}`)
     };
 
-    genericAppend(parent) {
-        if (typeof this === 'object') {
-            parent.appendChild(this);
-            console.log(`${this} appended to ${parent}`)
-        } else {
-            return console.error(`Warning - ${this} is not a valid object`)
-        }
-    }
-
     removeElement(element) {
         element.remove();
         return this;

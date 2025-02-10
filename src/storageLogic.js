@@ -1,4 +1,5 @@
-import { stringify, v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
+import { CreateElement } from './ElementGenerator';
 
 export class Note {
     constructor(title,date,content,workspace) {
@@ -18,5 +19,20 @@ export class Note {
     storeToMemory() {
         const _object = JSON.stringify(this)
         localStorage.setItem(this.uuid,_object);
+    }
+
+    generateNoteUi(parent) {
+        const header = CreateElement('header')
+            .addClass('cardTitle')
+            .addClass('flexColumn')
+            .html(`
+                <h1>${this.title}</h1>
+                <small>${this.date}</small>
+                `)
+        const card = CreateElement('article')
+            .addClass('noteSquare')
+            .addClass('grid')
+            .addId(this.uuid)
+
     }
 }
