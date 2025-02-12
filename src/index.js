@@ -1,8 +1,8 @@
 import html from './template.html';
 import './style.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import { DialogManager } from './UiManager';
-import { Note } from './storageLogic';
+import { DialogManager } from './UIManager';
+import { Note } from './NoteLogic';
 
 function appInstance() {
     const NEWNOTEBTN = document.querySelector('#addNoteBtn');
@@ -18,6 +18,7 @@ function appInstance() {
     };
 
     function submitBtn(dialog) {
+        console.log(dialog);
         const title = document.querySelector('#title').value;
         const date = document.querySelector('#date').value;
         const content = document.querySelector('#content').value;
@@ -28,7 +29,9 @@ function appInstance() {
             return;
         } else {
             const note = new Note(title,date,content,workspace);
+            console.log(note);
             note.storeToMemory();
+            console.log(activeWorkspace)
             note.generateNoteToUi(activeWorkspace);
             dialog.close();
         };

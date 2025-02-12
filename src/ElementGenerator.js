@@ -1,3 +1,5 @@
+import { createElement } from "@fullcalendar/core/preact.js";
+
 export class CreateElement {
     constructor(elementType) {
         this._buildable = document.createElement(elementType);
@@ -21,8 +23,13 @@ export class CreateElement {
     }
 
     append(parent) {
+        if (parent instanceof createElement) {
+            parent = parent._buildable;
+            console.log('updated parent!')
+        }
         parent.appendChild(this._buildable);
-        console.log(`${this._buildable.classList} appended to ${parent}`)
+        console.log(`${this._buildable.classList} appended to ${parent}`);
+        return this
     };
 
     removeElement(element) {
