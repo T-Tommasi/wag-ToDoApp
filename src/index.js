@@ -2,14 +2,22 @@ import html from './template.html';
 import './style.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { DialogManager } from './UIManager';
-import { Note } from './NoteLogic';
+import { Note,retrieveFromMemory } from './NoteLogic';
 
 function appInstance() {
     const NEWNOTEBTN = document.querySelector('#addNoteBtn');
     const NEWNOTEDLG = document.querySelector('#newNote');
     const RESETNOTEBTN = document.querySelector('#reset');
     const SUBMITNOTEBTN = document.querySelector('#submitNoteBtn');
-    let activeWorkspace = document.querySelector('#activeWorkspace')
+    let activeWorkspace = document.querySelector('#activeWorkspace');
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const memorizedKeys = retrieveFromMemory();
+        for (key of memorizedKeys) {
+            const element = JSON.stringify(localStorage.getItem(key))
+            element.append(activeWorkspace);
+        }
+    })
 
     function _listeners() {
         DialogManager.modalOpener(NEWNOTEBTN,NEWNOTEDLG);
