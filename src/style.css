@@ -148,6 +148,7 @@ body {
     box-shadow: 11px 0px 15px -3px rgba(0,0,0,0.1),11px 0px 45px -24px rgba(0,0,0,0.1),11px -3px 19px -40px rgba(0,0,0,0.1);
     padding: 2%;
     background-color: #F0F0F0;
+    gap: 3%;
 }
 
 /*workspace buttons management*/

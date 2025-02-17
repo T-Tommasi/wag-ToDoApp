@@ -71,7 +71,7 @@ export class Note {
 
 export class retrieveFromMemory{
     static allKeys() {
-        const memory = [...localStorage]
+        const memory = Object.keys(localStorage);
         return memory
     }
 }

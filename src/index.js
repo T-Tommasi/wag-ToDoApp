@@ -11,15 +11,16 @@ function appInstance() {
     const SUBMITNOTEBTN = document.querySelector('#submitNoteBtn');
     let activeWorkspace = document.querySelector('#activeWorkspace');
 
-    document.addEventListener('DOMContentLoaded', () => {
-        const memorizedKeys = retrieveFromMemory();
-        for (key of memorizedKeys) {
-            const element = JSON.stringify(localStorage.getItem(key))
-            element.append(activeWorkspace);
-        }
-    })
-
     function _listeners() {
+        document.addEventListener('DOMContentLoaded', () => {
+            const memorizedKeys = retrieveFromMemory.allKeys();
+            for (let key of memorizedKeys) {
+                console.log(key)
+                const elementRaw = JSON.parse(localStorage.getItem(key));
+                const element = new Note(elementRaw.title,elementRaw.date,elementRaw.content,elementRaw.workspace);
+                element.generateNoteToUi(activeWorkspace);
+            }
+        })
         DialogManager.modalOpener(NEWNOTEBTN,NEWNOTEDLG);
         RESETNOTEBTN.addEventListener('click',() => DialogManager.dialogCloser(NEWNOTEDLG));
         SUBMITNOTEBTN.addEventListener('click',() => submitBtn(NEWNOTEDLG));
