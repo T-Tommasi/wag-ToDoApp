@@ -3,12 +3,18 @@ import './style.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { DialogManager } from './UIManager';
 import { Note,retrieveFromMemory } from './NoteLogic';
+import { Workspace } from './workspaceLogic';
 
 function appInstance() {
     const NEWNOTEBTN = document.querySelector('#addNoteBtn');
     const NEWNOTEDLG = document.querySelector('#newNote');
     const RESETNOTEBTN = document.querySelector('#reset');
     const SUBMITNOTEBTN = document.querySelector('#submitNoteBtn');
+    const CREATEWORKSPACEBTN = document.querySelector('#createNewWorkspaceBtn');
+    const WORKSPACEDIALOG = document.querySelector('#newWorkspaceDialog');
+    const WORKSPACESUBMITBTN = document.querySelector('#submitWorkspace');
+    const WORKSPACERESETBTN = document.querySelector('#resetWorkspace');
+    const WORKSPACELABELS = document.querySelector('.workspaceLabels')
     let activeWorkspace = document.querySelector('#activeWorkspace');
 
     function _listeners() {
@@ -20,13 +26,15 @@ function appInstance() {
                 const element = new Note(elementRaw.title,elementRaw.date,elementRaw.content,elementRaw.workspace);
                 element.generateNoteToUi(activeWorkspace);
             }
-        })
+        });
+        DialogManager.modalOpener(CREATEWORKSPACEBTN, WORKSPACEDIALOG)
         DialogManager.modalOpener(NEWNOTEBTN,NEWNOTEDLG);
         RESETNOTEBTN.addEventListener('click',() => DialogManager.dialogCloser(NEWNOTEDLG));
-        SUBMITNOTEBTN.addEventListener('click',() => submitBtn(NEWNOTEDLG));
+        SUBMITNOTEBTN.addEventListener('click',() => noteSubmitBtn(NEWNOTEDLG));
+        WORKSPACERESETBTN.addEventListener('click', () => DialogManager.dialogCloser(WORKSPACEDIALOG));
     };
 
-    function submitBtn(dialog) {
+    function noteSubmitBtn(dialog) {
         console.log(dialog);
         const title = document.querySelector('#title').value;
         const date = document.querySelector('#date').value;
@@ -40,9 +48,24 @@ function appInstance() {
             const note = new Note(title,date,content,workspace);
             console.log(note);
             note.storeToMemory();
-            console.log(activeWorkspace)
+            console.log(activeWorkspace);
             note.generateNoteToUi(activeWorkspace);
             dialog.close();
+        };
+    };
+
+    function workspaceSubmitBtn(dialog) {
+        console.log(dialog);
+        const title = document.querySelector('#workspaceTitle').value;
+        const content = document.querySelector('#workspaceContents').value;
+        if (!title || !content) {
+            console.error('Title or content missing');
+            alert('Please write all the required information!');
+        } else {
+            const WORKSPACE = new Workspace(title,content,title);
+            console.log(WORKSPACE);
+            WORKSPACE.generateLabelToUi(WORKSPACELABELS);
+            WORKSPACE.activate(activeWorkspace)
         };
     };
 

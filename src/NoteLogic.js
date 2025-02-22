@@ -22,6 +22,12 @@ export class Note {
         localStorage.setItem(this.uuid,_object);
     }
 
+    static retrieveFromMemory(uuid) {
+        const raw = JSON.parse(localStorage.getItem(uuid));
+        const initialized = new Note(raw.title,raw.date,raw.content,raw.workspace);
+        return initialized
+    }
+
     generateNoteToUi(parent) {
         const card = new CreateElement('article') //Set up a card to then append to the parent.
             .addClass('noteSquare')

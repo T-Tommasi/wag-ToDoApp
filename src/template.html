@@ -22,11 +22,32 @@
                 <button type="button" id="memoryCleanse">Remove all data</button>
             </div>
         </nav>
-        <ol class="workspaceLabels flexRow" id="testLabel">
-            <li>workspace 1</li>
+        <ol class="workspaceLabels flexRow">
+            <li id="WIPID">workspace 1</li>
             <li>workspace 2</li>
-            <li id="createNewWorkspace">New workspace</li>
+            <li id="createNewWorkspaceBtn">New workspace</li>
         </ol>
+        <dialog class="dialogAppearance" id="newWorkspaceDialog">
+            <form class="flexColumn">
+                    <header>
+                        <h2>Let's create a new workspace!</h2>
+                    </header>
+                    <div class="flexColumn">
+                        <label for="title">What will be my name?</label>
+                        <input type="text" id="workspaceTitle" name="title" placeholder="I'm a workspace!">
+                    </div>
+                    <div class="flexColumn">
+                        <label for="noteContents">Who will i contain?</label>
+                        <select id="workspaceContents" title="workspaceContents">
+                            <option value="workspace1" id="workspace1">worskpace 1</option>
+                        </select>
+                    </div>
+                <div class="flexRow">
+                    <button type="button" id="submitWorkspace">Done!</button>
+                    <button type="button" id="resetWorkspace">Nope</button>
+                </div>
+            </form>
+        </dialog>
         <div class="activeWorkspace grid" id="activeWorkspace">
             <article class="noteSquare grid">
                 <header class="cardTitle flexColumn">
